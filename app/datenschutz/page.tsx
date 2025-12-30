@@ -22,10 +22,9 @@ export default function DatenschutzPage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-slate-900">1. Verantwortliche Stelle</h2>
               <p>
-                <strong>Yanev Shop</strong><br />
-                {/* TODO: Fügen Sie hier Ihre vollständige Adresse ein */}
-                [Ihre Adresse]<br />
-                [PLZ] [Ort]<br />
+                <strong>Swiss-Shop Yanev</strong><br />
+                Cordaststrasse 23<br />
+                3212 Gurmels<br />
                 Schweiz
               </p>
               <p className="mt-4">
