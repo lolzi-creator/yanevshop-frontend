@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 export default function CartPage() {
   const { cart, removeFromCart, updateQuantity, cartTotal, clearCart } = useCart();
-  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   if (cart.length === 0) {
     return (

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useCart } from '../context/CartContext';
 
@@ -20,7 +20,7 @@ interface Product {
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 
-export default function ProductsPage() {
+function ProductsPageContent() {
   const searchParams = useSearchParams();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -572,5 +572,24 @@ export default function ProductsPage() {
 
       <Footer />
     </div>
+  );
+}
+
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex flex-col min-h-screen bg-white">
+        <Navbar />
+        <div className="flex-grow flex items-center justify-center pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 md:pb-20">
+          <div className="text-center px-4 sm:px-6">
+            <div className="text-slate-600">Lädt...</div>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    }>
+      <ProductsPageContent />
+    </Suspense>
   );
 }

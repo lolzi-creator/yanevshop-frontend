@@ -4,7 +4,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 
@@ -16,7 +16,7 @@ interface Order {
   total: number;
 }
 
-export default function PaymentFailedPage() {
+function PaymentFailedPageContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const orderId = searchParams.get('orderId');
@@ -121,3 +121,22 @@ export default function PaymentFailedPage() {
   );
 }
 
+
+
+export default function PaymentFailedPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex flex-col min-h-screen bg-white">
+        <Navbar />
+        <div className="flex-grow flex items-center justify-center pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 md:pb-20">
+          <div className="text-center px-4 sm:px-6">
+            <div className="text-slate-600">Lädt...</div>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    }>
+      <PaymentFailedPageContent />
+    </Suspense>
+  );
+}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { loadStripe } from '@stripe/stripe-js';
@@ -88,7 +88,7 @@ function CheckoutForm({ clientSecret, orderId, total, onSuccess }: { clientSecre
 
       // Confirm payment after elements are submitted
       // For TWINT and other redirect-based methods, Stripe will redirect automatically
-      const { error: stripeError, paymentIntent } = await stripe.confirmPayment({
+      const result = await stripe.confirmPayment({
         elements,
         clientSecret,
         confirmParams: {
@@ -100,7 +100,8 @@ function CheckoutForm({ clientSecret, orderId, total, onSuccess }: { clientSecre
       // If we get here without redirect, it means payment was immediate (card without 3D Secure)
       // In this case, we handle it directly
 
-      if (stripeError) {
+      if (result.error) {
+        const stripeError = result.error;
         setError(stripeError.message || 'Zahlung fehlgeschlagen');
         setLoading(false);
         
@@ -121,12 +122,15 @@ function CheckoutForm({ clientSecret, orderId, total, onSuccess }: { clientSecre
         return;
       }
 
+      // Type guard: check if result has paymentIntent
       // If paymentIntent is null, it means Stripe redirected (TWINT, 3D Secure, etc.)
       // The user will be redirected back to order-success page
-      if (!paymentIntent) {
+      if (!('paymentIntent' in result) || !result.paymentIntent) {
         // Payment is being processed via redirect - user will be redirected
         return;
       }
+
+      const paymentIntent = result.paymentIntent as any; // Type assertion needed due to Stripe types
 
       // Handle different payment statuses
       if (paymentIntent.status === 'succeeded') {
@@ -144,20 +148,8 @@ function CheckoutForm({ clientSecret, orderId, total, onSuccess }: { clientSecre
           }
         }
         
-        // Alternative: check payment_method if charges not available
-        if (paymentIntent.payment_method && paymentMethod === 'CARD') {
-          try {
-            const pmDetails = await stripe.paymentMethods.retrieve(paymentIntent.payment_method as string);
-            if (pmDetails.type === 'twint') {
-              paymentMethod = 'TWINT';
-            } else if (pmDetails.type === 'card') {
-              paymentMethod = 'CARD';
-            }
-          } catch (pmError) {
-            // Ignore error, use charge details instead
-            console.log('Could not retrieve payment method details, using charge details');
-          }
-        }
+        // Note: Payment method detection from client-side is limited
+        // The backend webhook will handle accurate payment method detection
         
         console.log('Detected payment method:', paymentMethod, 'from payment intent:', paymentIntent);
         
@@ -226,7 +218,7 @@ function CheckoutForm({ clientSecret, orderId, total, onSuccess }: { clientSecre
 }
 
 // Main Checkout Page
-export default function CheckoutPage() {
+function CheckoutPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { cart, cartTotal, clearCart, addToCart, updateQuantity } = useCart();
@@ -705,5 +697,23 @@ export default function CheckoutPage() {
 
       <Footer />
     </div>
+  );
+}
+
+export default function CheckoutPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex flex-col min-h-screen bg-white">
+        <Navbar />
+        <div className="flex-grow flex items-center justify-center pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 md:pb-20">
+          <div className="text-center px-4 sm:px-6">
+            <div className="text-slate-600">Lädt...</div>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    }>
+      <CheckoutPageContent />
+    </Suspense>
   );
 }

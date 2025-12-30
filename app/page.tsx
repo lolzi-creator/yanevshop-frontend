@@ -11,6 +11,7 @@ interface Product {
   sellPrice: number;
   image: string | null;
   category: string;
+  isActive?: boolean;
 }
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';

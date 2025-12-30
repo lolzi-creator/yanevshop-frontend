@@ -124,7 +124,7 @@ export default function OrdersPage() {
               {error}
             </h1>
             <button
-              onClick={fetchOrders}
+              onClick={() => fetchOrders()}
               className="inline-block px-6 py-3 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-colors font-medium"
             >
               Erneut versuchen
