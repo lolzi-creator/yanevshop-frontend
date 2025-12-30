@@ -155,7 +155,10 @@ export default function DatenschutzPage() {
                 Bei Fragen zum Datenschutz können Sie uns jederzeit kontaktieren:
               </p>
               <p className="mt-4">
-                <strong>Yanev Shop</strong><br />
+                <strong>Swiss-Shop Yanev</strong><br />
+                Cordaststrasse 23<br />
+                3212 Gurmels<br />
+                Schweiz<br />
                 E-Mail: <a href="mailto:info@yanev-shop.ch" className="text-slate-900 underline">info@yanev-shop.ch</a>
               </p>
             </section>

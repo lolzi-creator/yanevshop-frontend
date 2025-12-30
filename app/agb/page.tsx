@@ -41,7 +41,7 @@ export default function AGBPage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-slate-900">2. Vertragspartner</h2>
               <p>
-                Vertragspartner ist Yanev Shop. Der Kaufvertrag kommt zwischen Ihnen und Yanev Shop zustande.
+                Vertragspartner ist Swiss-Shop Yanev. Der Kaufvertrag kommt zwischen Ihnen und Swiss-Shop Yanev zustande.
               </p>
             </section>
 
