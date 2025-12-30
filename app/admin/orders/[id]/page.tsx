@@ -383,8 +383,6 @@ export default function AdminOrderDetailPage() {
                     <span className="text-slate-900">CHF {order.shipping.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-slate-600">MWST (7.7%):</span>
-                    <span className="text-slate-900">CHF {order.tax.toFixed(2)}</span>
                   </div>
                   <div className="border-t border-slate-200 pt-2 mt-2">
                     <div className="flex justify-between">

@@ -409,8 +409,6 @@ export default function OrderManagement() {
                     <span className="text-slate-900 font-medium">{selectedOrder.shipping.toFixed(2)} CHF</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-600">MWST (7.7%):</span>
-                    <span className="text-slate-900 font-medium">{selectedOrder.tax.toFixed(2)} CHF</span>
                   </div>
                   <div className="flex justify-between pt-2 border-t border-slate-200">
                     <span className="font-semibold text-slate-900">Gesamt:</span>

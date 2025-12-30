@@ -42,7 +42,7 @@ export default function CartPage() {
 
   const subtotal = cartTotal;
   const shipping = 0; // Free shipping
-  const tax = subtotal * 0.077; // 7.7% VAT for Switzerland
+  const tax = 0; // No VAT/MWST
   const total = subtotal + shipping + tax;
 
   return (
@@ -188,10 +188,6 @@ export default function CartPage() {
                   <div className="flex justify-between text-xs md:text-sm">
                     <span className="text-slate-600">Versand</span>
                     <span className="font-medium text-green-600">Kostenlos</span>
-                  </div>
-                  <div className="flex justify-between text-xs md:text-sm">
-                    <span className="text-slate-600">MWST (7.7%)</span>
-                    <span className="font-medium text-slate-900">CHF {tax.toFixed(2)}</span>
                   </div>
                 </div>
 

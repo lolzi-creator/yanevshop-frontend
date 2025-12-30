@@ -320,8 +320,6 @@ function OrderSuccessPageContent() {
                   <span className="font-medium text-slate-900">CHF {order.shipping.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-600">MWST (7.7%)</span>
-                  <span className="font-medium text-slate-900">CHF {order.tax.toFixed(2)}</span>
                 </div>
                 <div className="border-t border-slate-200 pt-3 flex justify-between text-base sm:text-lg">
                   <span className="font-semibold text-slate-900">Gesamt</span>

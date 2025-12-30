@@ -322,8 +322,8 @@ function CheckoutPageContent() {
         return;
       }
 
-      // Calculate tax (7.7% VAT for Switzerland)
-      const tax = cartTotal * 0.077;
+      // No VAT/MWST
+      const tax = 0;
       const shipping = 0;
       const total = cartTotal + tax + shipping;
 
@@ -433,7 +433,7 @@ function CheckoutPageContent() {
     );
   }
 
-  const tax = cartTotal * 0.077;
+  const tax = 0; // No VAT/MWST
   const shipping = 0;
   const total = cartTotal + tax + shipping;
 
@@ -660,10 +660,6 @@ function CheckoutPageContent() {
                   <div className="flex justify-between text-sm">
                     <span className="text-slate-600">Versand</span>
                     <span className="font-medium text-slate-900">Kostenlos</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-slate-600">MWST (7.7%)</span>
-                    <span className="font-medium text-slate-900">CHF {tax.toFixed(2)}</span>
                   </div>
                   <div className="border-t border-slate-200 pt-3 sm:pt-4 flex justify-between text-base sm:text-lg">
                     <span className="font-semibold text-slate-900">Gesamt</span>

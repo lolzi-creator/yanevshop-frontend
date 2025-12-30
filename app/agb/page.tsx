@@ -64,7 +64,7 @@ export default function AGBPage() {
               <h2 className="text-2xl font-semibold mb-4 text-slate-900">4. Preise und Zahlung</h2>
               <h3 className="text-xl font-semibold mb-3 text-slate-900">4.1 Preise</h3>
               <p>
-                Alle Preise verstehen sich in Schweizer Franken (CHF) inklusive Mehrwertsteuer (7.7%).
+                Alle Preise verstehen sich in Schweizer Franken (CHF) ohne Mehrwertsteuer.
                 Versandkosten werden separat ausgewiesen und sind im Bestellvorgang ersichtlich.
               </p>
 
