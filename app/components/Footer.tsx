@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Footer() {
   return (
     <footer className="bg-slate-900 text-slate-300 border-t border-slate-800">
@@ -64,14 +66,14 @@ export default function Footer() {
             <h3 className="text-white font-semibold text-xs md:text-sm mb-2 md:mb-4">Rechtliches</h3>
             <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm mb-3 md:mb-4">
               <li>
-                <a href="#" className="text-slate-400 hover:text-white transition-colors">
+                <Link href="/datenschutz" className="text-slate-400 hover:text-white transition-colors">
                   Datenschutz
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-slate-400 hover:text-white transition-colors">
+                <Link href="/agb" className="text-slate-400 hover:text-white transition-colors">
                   AGB
-                </a>
+                </Link>
               </li>
             </ul>
             {/* Social Links */}
@@ -96,12 +98,12 @@ export default function Footer() {
             &copy; 2024 Yanev Shop. Alle Rechte vorbehalten.
           </p>
           <div className="flex flex-wrap justify-center gap-3 md:gap-4 lg:gap-6 text-[10px] md:text-xs lg:text-sm">
-            <a href="#" className="text-slate-400 hover:text-white transition-colors">
+            <Link href="/datenschutz" className="text-slate-400 hover:text-white transition-colors">
               Datenschutz
-            </a>
-            <a href="#" className="text-slate-400 hover:text-white transition-colors">
+            </Link>
+            <Link href="/agb" className="text-slate-400 hover:text-white transition-colors">
               AGB
-            </a>
+            </Link>
             <a href="#" className="text-slate-400 hover:text-white transition-colors">
               Versandinfo
             </a>

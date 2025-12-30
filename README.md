@@ -38,10 +38,15 @@ npm install
 Create a `.env.local` file:
 
 ```env
+# For local development
 NEXT_PUBLIC_API_URL=http://localhost:3001
+
+# For production (Railway backend)
+# NEXT_PUBLIC_API_URL=https://yanevshop-backend-production.up.railway.app
+
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_...
 ```
 
 ### Development

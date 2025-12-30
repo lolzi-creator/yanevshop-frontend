@@ -247,14 +247,10 @@ export default function ProductDetailPage() {
 
               {/* Additional Info */}
               <div className="pt-4 md:pt-6 border-t border-slate-200">
-                <div className="grid grid-cols-2 gap-3 md:gap-4 text-xs md:text-sm">
+                <div className="text-xs md:text-sm">
                   <div>
                     <p className="text-slate-500 mb-1">Kostenloser Versand</p>
                     <p className="text-slate-900 font-medium">In der ganzen Schweiz</p>
-                  </div>
-                  <div>
-                    <p className="text-slate-500 mb-1">Rückgabe</p>
-                    <p className="text-slate-900 font-medium">30 Tage Garantie</p>
                   </div>
                 </div>
               </div>
