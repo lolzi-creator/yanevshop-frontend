@@ -22,7 +22,7 @@ export default function AGBPage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-slate-900">1. Geltungsbereich</h2>
               <p>
-                Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Bestellungen über den Online-Shop von Yanev Shop.
+                Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Bestellungen über den Online-Shop von Swiss-Shop Yanev.
                 Mit der Bestellung erkennen Sie diese AGB an.
               </p>
               <p className="mt-4">
