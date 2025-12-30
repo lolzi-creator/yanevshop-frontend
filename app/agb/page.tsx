@@ -99,7 +99,7 @@ export default function AGBPage() {
                 Die Widerrufsfrist beträgt 14 Tage ab dem Tag, an dem Sie oder ein von Ihnen benannter Dritter die Waren in Besitz genommen haben.
               </p>
               <p className="mt-4">
-                Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (Yanev Shop, info@yanev-shop.ch) mittels einer eindeutigen Erklärung über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren.
+                Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (Swiss-Shop Yanev, info@yanev-shop.ch) mittels einer eindeutigen Erklärung über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren.
               </p>
               <p className="mt-4">
                 <strong>Widerrufsfolgen:</strong><br />
