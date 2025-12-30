@@ -99,9 +99,9 @@ export default function AdminDashboard() {
   };
 
   const tabs = [
-    { id: 'products' as TabType, label: 'Produkte', icon: '📦', href: '/admin' },
-    { id: 'orders' as TabType, label: 'Bestellungen', icon: '🛒', href: '/admin/orders' },
-    { id: 'finance' as TabType, label: 'Finanzen', icon: '💰', href: '/admin' },
+    { id: 'products' as TabType, label: 'Produkte', icon: '', href: '/admin' },
+    { id: 'orders' as TabType, label: 'Bestellungen', icon: '', href: '/admin/orders' },
+    { id: 'finance' as TabType, label: 'Finanzen', icon: '', href: '/admin' },
   ];
 
   return (
@@ -159,7 +159,6 @@ export default function AdminDashboard() {
                       : 'text-slate-700 hover:bg-slate-50'
                   }`}
                 >
-                  <span className="text-lg sm:text-xl">{tab.icon}</span>
                   <span className="font-medium text-sm sm:text-base">{tab.label}</span>
                 </button>
               );

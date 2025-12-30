@@ -53,11 +53,6 @@ export default function Footer() {
                   Kontakt
                 </a>
               </li>
-              <li>
-                <a href="#" className="text-slate-400 hover:text-white transition-colors">
-                  Versand
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -104,9 +99,6 @@ export default function Footer() {
             <Link href="/agb" className="text-slate-400 hover:text-white transition-colors">
               AGB
             </Link>
-            <a href="#" className="text-slate-400 hover:text-white transition-colors">
-              Versandinfo
-            </a>
           </div>
         </div>
       </div>
