@@ -27,17 +27,14 @@ export default function AGBPage() {
               </p>
               <p className="mt-4">
                 <strong>Anbieter:</strong><br />
-                Yanev Shop<br />
-                {/* TODO: Fügen Sie hier Ihre vollständige Adresse ein */}
-                [Ihre Adresse]<br />
-                [PLZ] [Ort]<br />
+                Swiss-Shop Yanev<br />
+                Cordaststrasse 23<br />
+                3212 Gurmels<br />
                 Schweiz
               </p>
               <p className="mt-4">
                 <strong>Kontakt:</strong><br />
                 E-Mail: info@yanev-shop.ch<br />
-                {/* TODO: Fügen Sie Ihre Telefonnummer hinzu, falls vorhanden */}
-                {/* Telefon: +41 XX XXX XX XX */}
               </p>
             </section>
 
