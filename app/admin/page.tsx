@@ -144,7 +144,6 @@ export default function AdminDashboard() {
                         : 'text-slate-700 hover:bg-slate-50'
                     }`}
                   >
-                    <span className="text-lg sm:text-xl">{tab.icon}</span>
                     <span className="font-medium text-sm sm:text-base">{tab.label}</span>
                   </Link>
                 );
