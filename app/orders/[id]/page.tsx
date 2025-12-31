@@ -146,7 +146,7 @@ export default function OrderDetailPage() {
     return (
       <div className="flex flex-col min-h-screen bg-white">
         <Navbar />
-        <div className="flex-grow flex items-center justify-center pt-20 md:pt-24 pb-12 md:pb-16">
+        <div className="flex-grow flex items-center justify-center pt-36 md:pt-40 lg:pt-44 pb-12 md:pb-16">
           <div className="text-center">
             <div className="text-slate-600">Lädt Bestellung...</div>
           </div>
@@ -160,7 +160,7 @@ export default function OrderDetailPage() {
     return (
       <div className="flex flex-col min-h-screen bg-white">
         <Navbar />
-        <div className="flex-grow flex items-center justify-center pt-20 md:pt-24 pb-12 md:pb-16">
+        <div className="flex-grow flex items-center justify-center pt-36 md:pt-40 lg:pt-44 pb-12 md:pb-16">
           <div className="text-center px-4 sm:px-6 max-w-md">
             <h1 className="text-2xl sm:text-3xl font-semibold mb-4 text-slate-900">
               {error || 'Bestellung nicht gefunden'}
@@ -182,7 +182,7 @@ export default function OrderDetailPage() {
     <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
 
-      <div className="flex-grow py-8 sm:py-12 md:py-16 pt-20 sm:pt-24 md:pt-28 bg-gradient-to-b from-slate-50 to-white">
+      <div className="flex-grow py-8 sm:py-12 md:py-16 pt-36 sm:pt-40 md:pt-44 bg-gradient-to-b from-slate-50 to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           {/* Header */}
           <div className="mb-6 sm:mb-8">

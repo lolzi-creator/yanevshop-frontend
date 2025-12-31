@@ -52,7 +52,7 @@ export default function CartPage() {
       <Navbar />
 
       {/* Header */}
-      <section className="pt-16 md:pt-20 lg:pt-24 pb-4 md:pb-6 lg:pb-8 bg-white border-b border-slate-200">
+      <section className="pt-36 md:pt-40 lg:pt-44 pb-4 md:pb-6 lg:pb-8 bg-white border-b border-slate-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-2 md:mb-3 text-slate-900">
             Warenkorb

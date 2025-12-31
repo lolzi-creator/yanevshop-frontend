@@ -108,7 +108,7 @@ export default function ProductDetailPage() {
       <Navbar />
 
       {/* Breadcrumb */}
-      <section className="pt-16 md:pt-20 lg:pt-24 pb-4 md:pb-6 bg-white">
+      <section className="pt-36 md:pt-40 lg:pt-44 pb-4 md:pb-6 bg-white">
         <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
           <nav className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-slate-600 mb-4 md:mb-6 lg:mb-8">
             <Link href="/" className="hover:text-slate-900 transition-colors">Startseite</Link>

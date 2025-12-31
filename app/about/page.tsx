@@ -8,11 +8,11 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-16 md:pt-20 lg:pt-24 pb-6 md:pb-8 lg:pb-12 bg-white">
+      <section className="pt-36 md:pt-40 lg:pt-44 pb-6 md:pb-8 lg:pb-12 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 md:mb-4 tracking-tight text-slate-900">
-              Über PINO Shop
+              Über Yanev Shop
             </h1>
             <p className="text-sm md:text-base lg:text-lg text-slate-600 font-light">
               Ihr vertrauensvoller Partner für alpine Abenteuer
@@ -31,7 +31,7 @@ export default function AboutPage() {
                   Unsere Geschichte
                 </h2>
                 <p className="text-sm md:text-base lg:text-lg text-slate-600 font-light leading-relaxed mb-3 md:mb-4">
-                  PINO Shop wurde mit der Leidenschaft für Skifahren und dem Engagement für höchste Qualität gegründet. 
+                  Yanev Shop wurde mit der Leidenschaft für Skifahren und dem Engagement für höchste Qualität gegründet. 
                   Wir sind ein Familienunternehmen, das sich auf Premium Ski-Ausrüstung spezialisiert hat.
                 </p>
                 <p className="text-sm md:text-base lg:text-lg text-slate-600 font-light leading-relaxed">

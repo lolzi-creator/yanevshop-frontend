@@ -398,7 +398,7 @@ function CheckoutPageContent() {
     return (
       <div className="flex flex-col min-h-screen bg-white">
         <Navbar />
-        <div className="flex-grow flex items-center justify-center pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 md:pb-20 bg-gradient-to-b from-slate-50 to-white">
+        <div className="flex-grow flex items-center justify-center pt-36 sm:pt-40 md:pt-44 pb-12 sm:pb-16 md:pb-20 bg-gradient-to-b from-slate-50 to-white">
           <div className="text-center px-4 sm:px-6">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-slate-900 mx-auto mb-4"></div>
             <div className="text-slate-600">Warenkorb wird wiederhergestellt...</div>
@@ -413,7 +413,7 @@ function CheckoutPageContent() {
     return (
       <div className="flex flex-col min-h-screen bg-white">
         <Navbar />
-        <div className="flex-grow flex items-center justify-center pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 md:pb-20 bg-gradient-to-b from-slate-50 to-white">
+        <div className="flex-grow flex items-center justify-center pt-36 sm:pt-40 md:pt-44 pb-12 sm:pb-16 md:pb-20 bg-gradient-to-b from-slate-50 to-white">
           <div className="text-center px-4 sm:px-6">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight mb-4 sm:mb-6 text-slate-900">
               Ihr Warenkorb ist leer
@@ -444,7 +444,7 @@ function CheckoutPageContent() {
     <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
 
-      <div className="flex-grow py-8 sm:py-12 md:py-16 pt-20 sm:pt-24 md:pt-28 bg-gradient-to-b from-slate-50 to-white">
+      <div className="flex-grow py-8 sm:py-12 md:py-16 pt-36 sm:pt-40 md:pt-44 bg-gradient-to-b from-slate-50 to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-6 sm:mb-8 md:mb-12 text-slate-900">
             Kasse
@@ -715,7 +715,7 @@ export default function CheckoutPage() {
     <Suspense fallback={
       <div className="flex flex-col min-h-screen bg-white">
         <Navbar />
-        <div className="flex-grow flex items-center justify-center pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 md:pb-20">
+        <div className="flex-grow flex items-center justify-center pt-36 sm:pt-40 md:pt-44 pb-12 sm:pb-16 md:pb-20">
           <div className="text-center px-4 sm:px-6">
             <div className="text-slate-600">Lädt...</div>
           </div>

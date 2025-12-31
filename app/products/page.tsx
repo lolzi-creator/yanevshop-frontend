@@ -27,7 +27,6 @@ function ProductsPageContent() {
   const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState<{ name: string; count: number }[]>([]);
   const [selectedCategory, setSelectedCategory] = useState('Alle');
-  const [selectedBrand, setSelectedBrand] = useState('Alle Marken');
   const [selectedProductType, setSelectedProductType] = useState('Alle');
   const [priceRange, setPriceRange] = useState([0, 1000]);
   const [inStockOnly, setInStockOnly] = useState(false);
@@ -84,7 +83,6 @@ function ProductsPageContent() {
     }
   };
 
-  const brands = ['Alle Marken', 'Atomic', 'Salomon', 'Rossignol', 'Head', 'Fischer'];
   const sortOptions = [
     { value: 'default', label: 'Standard' },
     { value: 'price-low', label: 'Preis: Niedrig zu Hoch' },
@@ -97,13 +95,12 @@ function ProductsPageContent() {
   let filteredProducts = products.filter(product => {
     if (!product.isActive) return false;
     const matchesCategory = selectedCategory === 'Alle' || product.category === selectedCategory;
-    const matchesBrand = selectedBrand === 'Alle Marken'; // Add brand to products later
     const matchesProductType = selectedProductType === 'Alle' || product.productType === selectedProductType;
     const matchesPrice = product.sellPrice >= priceRange[0] && product.sellPrice <= priceRange[1];
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          (product.description && product.description.toLowerCase().includes(searchQuery.toLowerCase()));
     const matchesStock = !inStockOnly || product.stock > 0;
-    return matchesCategory && matchesBrand && matchesProductType && matchesPrice && matchesSearch && matchesStock;
+    return matchesCategory && matchesProductType && matchesPrice && matchesSearch && matchesStock;
   });
 
   // Sort products
@@ -254,27 +251,6 @@ function ProductsPageContent() {
                     </ul>
                   </div>
 
-                  {/* Brand */}
-                  <div className="border-t border-slate-200 pt-4 md:pt-6">
-                    <h2 className="text-base md:text-lg font-semibold text-slate-900 mb-3 md:mb-4">Marke</h2>
-                    <ul className="space-y-2">
-                      {brands.map((brand) => (
-                        <li key={brand}>
-                          <button
-                            onClick={() => setSelectedBrand(brand)}
-                            className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
-                              selectedBrand === brand
-                                ? 'bg-slate-900 text-white'
-                                : 'text-slate-700 hover:bg-slate-100'
-                            }`}
-                          >
-                            {brand}
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
                   {/* Availability */}
                   <div className="border-t border-slate-200 pt-4 md:pt-6">
                     <h2 className="text-base md:text-lg font-semibold text-slate-900 mb-3 md:mb-4">Verfügbarkeit</h2>
@@ -294,7 +270,6 @@ function ProductsPageContent() {
                     <button
                       onClick={() => {
                         setSelectedCategory('Alle');
-                        setSelectedBrand('Alle Marken');
                         setSelectedProductType('Alle');
                         setPriceRange([0, maxPrice]);
                         setInStockOnly(false);
@@ -416,26 +391,6 @@ function ProductsPageContent() {
                           </div>
                         </div>
 
-                        {/* Brand */}
-                        <div className="border-t border-slate-200 pt-6">
-                          <h3 className="text-lg font-semibold text-slate-900 mb-4">Marke</h3>
-                          <ul className="space-y-2">
-                            {brands.map((brand) => (
-                              <li key={brand}>
-                                <button
-                                  onClick={() => setSelectedBrand(brand)}
-                                  className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
-                                    selectedBrand === brand
-                                      ? 'bg-slate-900 text-white'
-                                      : 'text-slate-700 hover:bg-slate-100'
-                                  }`}
-                                >
-                                  {brand}
-                                </button>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
 
                         {/* Availability */}
                         <div className="border-t border-slate-200 pt-6">
@@ -456,7 +411,6 @@ function ProductsPageContent() {
                           <button
                             onClick={() => {
                               setSelectedCategory('Alle');
-                              setSelectedBrand('Alle Marken');
                               setSelectedProductType('Alle');
                               setPriceRange([0, maxPrice]);
                               setInStockOnly(false);

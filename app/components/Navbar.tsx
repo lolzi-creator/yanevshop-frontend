@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -12,14 +12,28 @@ export default function Navbar() {
   const { user, logout, loading: authLoading } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const bannerRef = useRef<HTMLDivElement>(null);
 
   const FREE_SHIPPING_THRESHOLD = 50;
   const remainingForFreeShipping = Math.max(0, FREE_SHIPPING_THRESHOLD - (cartTotal || 0));
 
+  useEffect(() => {
+    const updateNavbarPosition = () => {
+      if (bannerRef.current) {
+        const bannerHeight = bannerRef.current.offsetHeight;
+        document.documentElement.style.setProperty('--banner-height', `${bannerHeight}px`);
+      }
+    };
+
+    updateNavbarPosition();
+    window.addEventListener('resize', updateNavbarPosition);
+    return () => window.removeEventListener('resize', updateNavbarPosition);
+  }, []);
+
   return (
     <>
       {/* Free Shipping Banner - Always visible */}
-      <div className="fixed top-0 left-0 right-0 z-[60] bg-slate-900 text-white text-center py-2 px-4 text-xs sm:text-sm">
+      <div ref={bannerRef} id="shipping-banner" className="fixed top-0 left-0 right-0 z-[60] bg-slate-900 text-white text-center py-2 px-4 text-xs sm:text-sm">
         {cartTotal > 0 && cartTotal < FREE_SHIPPING_THRESHOLD ? (
           <p>
             Noch <strong>{remainingForFreeShipping.toFixed(2)} CHF</strong> bis zum kostenlosen Versand! 🚚
@@ -34,7 +48,7 @@ export default function Navbar() {
           </p>
         )}
       </div>
-      <nav className="fixed top-8 sm:top-10 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-blue-100/50 shadow-sm">
+      <nav className="fixed left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-blue-100/50 shadow-sm" style={{ top: 'var(--banner-height, 32px)' }}>
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link 

@@ -30,7 +30,7 @@ export default function ContactPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-16 md:pt-20 lg:pt-24 pb-6 md:pb-8 lg:pb-12 bg-white">
+      <section className="pt-36 md:pt-40 lg:pt-44 pb-6 md:pb-8 lg:pb-12 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 md:mb-4 tracking-tight text-slate-900">
@@ -72,8 +72,8 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-xs md:text-sm font-semibold text-slate-900 mb-1 uppercase tracking-wide">Adresse</h3>
                     <p className="text-xs md:text-sm text-slate-600 font-light">
-                      Musterstraße 123<br />
-                      8000 Zürich<br />
+                      Cordaststrasse 23<br />
+                      3212 Gurmels<br />
                       Schweiz
                     </p>
                   </div>
@@ -102,8 +102,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-xs md:text-sm font-semibold text-slate-900 mb-1 uppercase tracking-wide">E-Mail</h3>
-                    <p className="text-xs md:text-sm text-slate-600 font-light">info@pinoshop.ch</p>
-                    <p className="text-xs md:text-sm text-slate-600 font-light">support@pinoshop.ch</p>
+                    <p className="text-xs md:text-sm text-slate-600 font-light">info@yanev-shop.ch</p>
                   </div>
                 </div>
 

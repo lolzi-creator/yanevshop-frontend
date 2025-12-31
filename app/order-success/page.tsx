@@ -186,7 +186,7 @@ function OrderSuccessPageContent() {
     return (
       <div className="flex flex-col min-h-screen bg-white">
         <Navbar />
-        <div className="flex-grow flex items-center justify-center pt-20 md:pt-24 pb-12 md:pb-16">
+        <div className="flex-grow flex items-center justify-center pt-36 md:pt-40 lg:pt-44 pb-12 md:pb-16">
           <div className="text-center">
             {checkingPayment ? (
               <>
@@ -208,7 +208,7 @@ function OrderSuccessPageContent() {
     return (
       <div className="flex flex-col min-h-screen bg-white">
         <Navbar />
-        <div className="flex-grow flex items-center justify-center pt-20 md:pt-24 pb-12 md:pb-16 bg-gradient-to-b from-white to-slate-50">
+        <div className="flex-grow flex items-center justify-center pt-36 md:pt-40 lg:pt-44 pb-12 md:pb-16 bg-gradient-to-b from-white to-slate-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
             <h1 className="text-2xl sm:text-3xl font-semibold mb-4 text-slate-900">
               {error || 'Bestellung nicht gefunden'}
@@ -229,7 +229,7 @@ function OrderSuccessPageContent() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
-      <div className="flex-grow py-8 sm:py-12 md:py-16 pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 md:pb-20 bg-gradient-to-b from-white to-slate-50">
+      <div className="flex-grow py-8 sm:py-12 md:py-16 pt-36 sm:pt-40 md:pt-44 pb-12 sm:pb-16 md:pb-20 bg-gradient-to-b from-white to-slate-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           {/* Success Header */}
           <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-6 sm:p-8 md:p-12 mb-6 sm:mb-8 text-center">
@@ -395,7 +395,7 @@ export default function OrderSuccessPage() {
     <Suspense fallback={
       <div className="flex flex-col min-h-screen bg-white">
         <Navbar />
-        <div className="flex-grow flex items-center justify-center pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 md:pb-20">
+        <div className="flex-grow flex items-center justify-center pt-36 sm:pt-40 md:pt-44 pb-12 sm:pb-16 md:pb-20">
           <div className="text-center px-4 sm:px-6">
             <div className="text-slate-600">Lädt...</div>
           </div>

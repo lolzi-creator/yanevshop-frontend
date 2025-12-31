@@ -161,7 +161,7 @@ export default function ProfilePage() {
     <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
       
-      <section className="flex-grow pt-12 md:pt-16 lg:pt-20 pb-8 md:pb-12 bg-gradient-to-b from-slate-50 to-white">
+      <section className="flex-grow pt-36 md:pt-40 lg:pt-44 pb-8 md:pb-12 bg-gradient-to-b from-slate-50 to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 md:mb-8 tracking-tight text-slate-900">

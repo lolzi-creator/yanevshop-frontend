@@ -8,7 +8,7 @@ export default function AGBPage() {
       <Navbar />
 
       {/* Content */}
-      <section className="flex-grow pt-16 md:pt-20 lg:pt-24 pb-12 md:pb-16 bg-white">
+      <section className="flex-grow pt-36 md:pt-40 lg:pt-44 pb-12 md:pb-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <h1 className="text-3xl md:text-4xl font-semibold mb-6 md:mb-8 text-slate-900">
             Allgemeine Geschäftsbedingungen (AGB)

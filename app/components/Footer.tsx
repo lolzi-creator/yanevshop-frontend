@@ -90,7 +90,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-slate-800 pt-4 md:pt-6 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4">
           <p className="text-[10px] md:text-xs lg:text-sm text-slate-400 text-center md:text-left">
-            &copy; 2024 Yanev Shop. Alle Rechte vorbehalten.
+            &copy; 2026 Yanev Shop. Alle Rechte vorbehalten.
           </p>
           <div className="flex flex-wrap justify-center gap-3 md:gap-4 lg:gap-6 text-[10px] md:text-xs lg:text-sm">
             <Link href="/datenschutz" className="text-slate-400 hover:text-white transition-colors">
