@@ -40,10 +40,12 @@ export default function CartPage() {
     );
   }
 
+  const FREE_SHIPPING_THRESHOLD = 50;
   const subtotal = cartTotal;
-  const shipping = 0; // Free shipping
+  const shipping = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : 8; // Free shipping over 50 CHF, otherwise 8 CHF
   const tax = 0; // No VAT/MWST
   const total = subtotal + shipping + tax;
+  const remainingForFreeShipping = Math.max(0, FREE_SHIPPING_THRESHOLD - subtotal);
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -187,8 +189,19 @@ export default function CartPage() {
                   </div>
                   <div className="flex justify-between text-xs md:text-sm">
                     <span className="text-slate-600">Versand</span>
-                    <span className="font-medium text-green-600">Kostenlos</span>
+                    {shipping === 0 ? (
+                      <span className="font-medium text-green-600">Kostenlos</span>
+                    ) : (
+                      <span className="font-medium text-slate-900">CHF {shipping.toFixed(2)}</span>
+                    )}
                   </div>
+                  {shipping > 0 && (
+                    <div className="mt-2 p-2 bg-slate-50 rounded-lg text-xs">
+                      <p className="text-slate-600">
+                        Noch <strong className="text-slate-900">{remainingForFreeShipping.toFixed(2)} CHF</strong> für kostenlosen Versand!
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 {/* Total */}

@@ -21,6 +21,7 @@ interface Product {
   stock: number;
   minStock: number;
   isActive: boolean;
+  productType: 'NEW' | 'OCCASION' | null;
   createdAt: string;
   updatedAt: string;
 }
@@ -60,6 +61,7 @@ export default function ProductManagement({ products, loading, onRefresh }: Prod
     stock: '',
     minStock: '',
     isActive: true,
+    productType: '' as 'NEW' | 'OCCASION' | '',
   });
   const [productImages, setProductImages] = useState<string[]>([]);
   const [newImageUrl, setNewImageUrl] = useState('');
@@ -169,6 +171,7 @@ export default function ProductManagement({ products, loading, onRefresh }: Prod
         stock: parseInt(formData.stock) || 0,
         minStock: parseInt(formData.minStock) || 0,
         isActive: formData.isActive,
+        productType: formData.productType || null,
       };
 
       const url = editingProduct
@@ -210,6 +213,7 @@ export default function ProductManagement({ products, loading, onRefresh }: Prod
       stock: product.stock.toString(),
       minStock: product.minStock.toString(),
       isActive: product.isActive,
+      productType: product.productType || '',
     });
     // Initialize images array with existing image
     setProductImages(product.image ? [product.image] : []);
@@ -251,6 +255,7 @@ export default function ProductManagement({ products, loading, onRefresh }: Prod
       stock: '',
       minStock: '',
       isActive: true,
+      productType: '',
     });
     setProductImages([]);
     setNewImageUrl('');
@@ -584,6 +589,19 @@ export default function ProductManagement({ products, loading, onRefresh }: Prod
                         {category}
                       </option>
                     ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-slate-900 mb-1.5">Produkt-Badge</label>
+                  <select
+                    value={formData.productType}
+                    onChange={(e) => setFormData({ ...formData, productType: e.target.value as 'NEW' | 'OCCASION' | '' })}
+                    className="w-full px-4 py-2 border-2 border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent bg-white"
+                  >
+                    <option value="">Kein Badge</option>
+                    <option value="NEW">Neu</option>
+                    <option value="OCCASION">Occasion</option>
                   </select>
                 </div>
 

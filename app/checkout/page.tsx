@@ -323,8 +323,9 @@ function CheckoutPageContent() {
       }
 
       // No VAT/MWST
+      const FREE_SHIPPING_THRESHOLD = 50;
       const tax = 0;
-      const shipping = 0;
+      const shipping = cartTotal >= FREE_SHIPPING_THRESHOLD ? 0 : 8; // Free shipping over 50 CHF, otherwise 8 CHF
       const total = cartTotal + tax + shipping;
 
       // Create order
@@ -433,9 +434,11 @@ function CheckoutPageContent() {
     );
   }
 
+  const FREE_SHIPPING_THRESHOLD = 50;
   const tax = 0; // No VAT/MWST
-  const shipping = 0;
+  const shipping: number = cartTotal >= FREE_SHIPPING_THRESHOLD ? 0 : 8; // Free shipping over 50 CHF, otherwise 8 CHF
   const total = cartTotal + tax + shipping;
+  const remainingForFreeShipping = Math.max(0, FREE_SHIPPING_THRESHOLD - cartTotal);
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -659,8 +662,19 @@ function CheckoutPageContent() {
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-slate-600">Versand</span>
-                    <span className="font-medium text-slate-900">Kostenlos</span>
+                    {shipping === 0 ? (
+                      <span className="font-medium text-green-600">Kostenlos</span>
+                    ) : (
+                      <span className="font-medium text-slate-900">CHF {shipping.toFixed(2)}</span>
+                    )}
                   </div>
+                  {shipping > 0 && (
+                    <div className="mt-2 p-2 bg-slate-50 rounded-lg text-xs">
+                      <p className="text-slate-600">
+                        Noch <strong className="text-slate-900">{remainingForFreeShipping.toFixed(2)} CHF</strong> für kostenlosen Versand!
+                      </p>
+                    </div>
+                  )}
                   <div className="border-t border-slate-200 pt-3 sm:pt-4 flex justify-between text-base sm:text-lg">
                     <span className="font-semibold text-slate-900">Gesamt</span>
                     <span className="font-semibold text-slate-900">CHF {total.toFixed(2)}</span>

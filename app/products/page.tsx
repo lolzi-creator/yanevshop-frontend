@@ -16,6 +16,7 @@ interface Product {
   sellPrice: number;
   stock: number;
   isActive: boolean;
+  productType: 'NEW' | 'OCCASION' | null;
 }
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
@@ -27,6 +28,7 @@ function ProductsPageContent() {
   const [categories, setCategories] = useState<{ name: string; count: number }[]>([]);
   const [selectedCategory, setSelectedCategory] = useState('Alle');
   const [selectedBrand, setSelectedBrand] = useState('Alle Marken');
+  const [selectedProductType, setSelectedProductType] = useState('Alle');
   const [priceRange, setPriceRange] = useState([0, 1000]);
   const [inStockOnly, setInStockOnly] = useState(false);
   const [sortBy, setSortBy] = useState('default');
@@ -96,11 +98,12 @@ function ProductsPageContent() {
     if (!product.isActive) return false;
     const matchesCategory = selectedCategory === 'Alle' || product.category === selectedCategory;
     const matchesBrand = selectedBrand === 'Alle Marken'; // Add brand to products later
+    const matchesProductType = selectedProductType === 'Alle' || product.productType === selectedProductType;
     const matchesPrice = product.sellPrice >= priceRange[0] && product.sellPrice <= priceRange[1];
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          (product.description && product.description.toLowerCase().includes(searchQuery.toLowerCase()));
     const matchesStock = !inStockOnly || product.stock > 0;
-    return matchesCategory && matchesBrand && matchesPrice && matchesSearch && matchesStock;
+    return matchesCategory && matchesBrand && matchesProductType && matchesPrice && matchesSearch && matchesStock;
   });
 
   // Sort products
@@ -153,7 +156,7 @@ function ProductsPageContent() {
       <Navbar />
 
       {/* Main Content - Sidebar + Products */}
-      <section className="flex-grow py-4 md:py-6 lg:py-8 bg-white pt-16 md:pt-20 lg:pt-24">
+      <section className="flex-grow py-4 md:py-6 lg:py-8 bg-white pt-24 md:pt-28 lg:pt-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-4 md:gap-6 lg:gap-12">
             
@@ -230,6 +233,27 @@ function ProductsPageContent() {
                     </div>
                   </div>
 
+                  {/* Product Type */}
+                  <div className="border-t border-slate-200 pt-4 md:pt-6">
+                    <h2 className="text-base md:text-lg font-semibold text-slate-900 mb-3 md:mb-4">Badge</h2>
+                    <ul className="space-y-2">
+                      {['Alle', 'NEW', 'OCCASION'].map((type) => (
+                        <li key={type}>
+                          <button
+                            onClick={() => setSelectedProductType(type)}
+                            className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                              selectedProductType === type
+                                ? 'bg-slate-900 text-white'
+                                : 'text-slate-700 hover:bg-slate-100'
+                            }`}
+                          >
+                            {type === 'Alle' ? 'Alle' : type === 'NEW' ? 'Neu' : 'Occasion'}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
                   {/* Brand */}
                   <div className="border-t border-slate-200 pt-4 md:pt-6">
                     <h2 className="text-base md:text-lg font-semibold text-slate-900 mb-3 md:mb-4">Marke</h2>
@@ -271,6 +295,7 @@ function ProductsPageContent() {
                       onClick={() => {
                         setSelectedCategory('Alle');
                         setSelectedBrand('Alle Marken');
+                        setSelectedProductType('Alle');
                         setPriceRange([0, maxPrice]);
                         setInStockOnly(false);
                         setSortBy('default');
@@ -330,6 +355,30 @@ function ProductsPageContent() {
                                   }`}>
                                     ({category.count})
                                   </span>
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Product Type */}
+                        <div className="border-t border-slate-200 pt-6">
+                          <h3 className="text-lg font-semibold text-slate-900 mb-4">Badge</h3>
+                          <ul className="space-y-2">
+                            {['Alle', 'NEW', 'OCCASION'].map((type) => (
+                              <li key={type}>
+                                <button
+                                  onClick={() => {
+                                    setSelectedProductType(type);
+                                    setMobileFiltersOpen(false);
+                                  }}
+                                  className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                                    selectedProductType === type
+                                      ? 'bg-slate-900 text-white'
+                                      : 'text-slate-700 hover:bg-slate-100'
+                                  }`}
+                                >
+                                  {type === 'Alle' ? 'Alle' : type === 'NEW' ? 'Neu' : 'Occasion'}
                                 </button>
                               </li>
                             ))}
@@ -408,6 +457,7 @@ function ProductsPageContent() {
                             onClick={() => {
                               setSelectedCategory('Alle');
                               setSelectedBrand('Alle Marken');
+                              setSelectedProductType('Alle');
                               setPriceRange([0, maxPrice]);
                               setInStockOnly(false);
                               setSortBy('default');
@@ -503,9 +553,21 @@ function ProductsPageContent() {
                             {product.category}
                           </span>
                         </div>
+                        {/* Product Type Badge (NEW/OCCASION) */}
+                        {product.productType && (
+                          <div className="absolute top-2 right-2">
+                            <span className={`px-2 py-0.5 backdrop-blur-sm text-white text-[10px] font-medium rounded-full ${
+                              product.productType === 'NEW' 
+                                ? 'bg-blue-600/95' 
+                                : 'bg-orange-600/95'
+                            }`}>
+                              {product.productType === 'NEW' ? 'Neu' : 'Occasion'}
+                            </span>
+                          </div>
+                        )}
                         {/* Stock Badge */}
                         {product.stock <= 0 && (
-                          <div className="absolute top-2 right-2">
+                          <div className={`absolute ${product.productType ? 'bottom-2 right-2' : 'top-2 right-2'}`}>
                             <span className="px-2 py-0.5 bg-red-500/95 backdrop-blur-sm text-white text-[10px] font-medium rounded-full">
                               Ausverkauft
                             </span>
